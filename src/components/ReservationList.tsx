@@ -36,6 +36,17 @@ function ReservationList() {
       hours: 1,
       amount: '3000',
       status: 'PENDING'
+    },
+    {
+      id: '003',
+      customerName: 'Sasanka',
+      mobile: '6533444',
+      date: '8/23/2024',
+      startTime: '11:00',
+      endTime: '13:00',
+      hours: 2,
+      amount: '6000',
+      status: 'CONFIRMED'
     }
   ];
 
