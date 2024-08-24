@@ -16,38 +16,38 @@ function ReservationList() {
   const [bgColor, setBgColor] = useState("bg-warning");
   const reservationList = [
     {
-      id: '001',
-      customerName: 'Sanju',
-      mobile: '0785643456',
-      date: '7/28/2024',
-      startTime: '09:00',
-      endTime: '11:00',
+      id: "001",
+      customerName: "Sanju",
+      mobile: "0785643456",
+      date: "7/28/2024",
+      startTime: "09:00",
+      endTime: "11:00",
       hours: 2,
-      amount: '6000',
-      status: 'CONFIRMED'
+      amount: "6000",
+      status: "CONFIRMED",
     },
     {
-      id: '002',
-      customerName: 'Kavindu',
-      mobile: '0745643456',
-      date: '7/28/2024',
-      startTime: '11:00',
-      endTime: '12:00',
+      id: "002",
+      customerName: "Kavindu",
+      mobile: "0745643456",
+      date: "7/28/2024",
+      startTime: "11:00",
+      endTime: "12:00",
       hours: 1,
-      amount: '3000',
-      status: 'PENDING'
+      amount: "3000",
+      status: "PENDING",
     },
     {
-      id: '003',
-      customerName: 'Sasanka',
-      mobile: '6533444',
-      date: '8/23/2024',
-      startTime: '11:00',
-      endTime: '13:00',
+      id: "003",
+      customerName: "Sasanka",
+      mobile: "6533444",
+      date: "8/23/2024",
+      startTime: "11:00",
+      endTime: "13:00",
       hours: 2,
-      amount: '6000',
-      status: 'CONFIRMED'
-    }
+      amount: "6000",
+      status: "CONFIRMED",
+    },
   ];
 
   return (
@@ -82,15 +82,23 @@ function ReservationList() {
                 <td>{reservation.hours} hours</td>
                 <td>{reservation.amount} LKR</td>
                 <td>
-                  <p className={"badge "+ bgColor} >{reservation.status}</p>
+                  <p className={"badge " + bgColor}>{reservation.status}</p>
                 </td>
                 <td>
-                  <button type="button" style={{ width: '90px' }} className="btn btn-warning" >
+                  <button
+                    type="button"
+                    style={{ width: "90px" }}
+                    className="btn btn-warning"
+                  >
                     Update
                   </button>
                 </td>
                 <td>
-                  <button type="button" style={{ width: '90px' }} className="btn btn-danger" >
+                  <button
+                    type="button"
+                    style={{ width: "90px" }}
+                    className="btn btn-danger"
+                  >
                     Delete
                   </button>
                 </td>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const MyComponent = () => {
+const AxioGet = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,11 +9,11 @@ const MyComponent = () => {
   useEffect(() => {
     // Create an Axios instance if needed, or use axios directly.
     const axiosInstance = axios.create({
-      baseURL: 'http://localhost:8080/api/reservations', // replace with your API base URL
+      baseURL: "http://localhost:8080/api/reservations", // replace with your API base URL
     });
 
     axiosInstance
-      .get('') // replace with your endpoint
+      .get("") // replace with your endpoint
       .then((response) => {
         setData(response.data);
         setLoading(false);
@@ -35,4 +35,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default AxioGet;
