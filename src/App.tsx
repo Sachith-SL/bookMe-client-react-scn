@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import MyComponent from "./components/AxiosGet";
+import ReadUsers from "./components/ReadUsers";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <MyComponent />
+      <ReadUsers />
     </>
   );
 }
