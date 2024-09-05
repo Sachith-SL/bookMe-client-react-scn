@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 
 interface User {
   id: number;
@@ -10,7 +11,7 @@ interface User {
 }
 
 function ReadUsers() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -19,7 +20,7 @@ function ReadUsers() {
     baseURL: "http://localhost:8080/api/users", // replace with your API base URL
   });
 
-  const deleteUser = (id) => {
+  const deleteUser = (id: number) => {
     console.log(`delete ${id}`);
     axiosInstance
       .delete(`/${id}`)
@@ -44,8 +45,13 @@ function ReadUsers() {
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading)
+    return (
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
+  if (error) return <ErrorPage />;
 
   return (
     <>
@@ -62,8 +68,7 @@ function ReadUsers() {
             </tr>
           </thead>
           <tbody>
-            {data != null &&
-              data.map((user, index) => (
+            {data.map((user: User, index: number) => (
                 <tr key={index}>
                   <th scope="row">{user.id}</th>
                   <td>{user.name}</td>

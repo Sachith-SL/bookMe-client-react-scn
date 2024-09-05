@@ -9,7 +9,7 @@ function CreateUser() {
     isLoyalty: "false", // default to 'false'
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({
       ...prevUser,
@@ -17,7 +17,7 @@ function CreateUser() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log("User Data:", user);
     // Add your form submission logic here (e.g., send the data to an API)
