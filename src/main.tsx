@@ -25,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/new",
     element: <CreateUser />,
+  },
+  {
+    path: "/update/:id",
+    element: <UpdateUser />,
   }
 
 ]);
