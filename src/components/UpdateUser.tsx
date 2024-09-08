@@ -71,7 +71,6 @@ function UpdateUser() {
 
   return (
     <>
-      <div>Update User id: {[params.id]}</div>
       <h1>Update User</h1>
 
       <form onSubmit={handleSubmit} className="container mt-4">

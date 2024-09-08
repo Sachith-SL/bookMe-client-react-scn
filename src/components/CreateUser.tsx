@@ -12,7 +12,7 @@ function CreateUser() {
   const [user, setUser] = useState({
     name: "",
     mobile: "",
-    isLoyalty: "", // 'Y' or 'N'
+    isLoyalty: "N", // 'Y' or 'N'
   });
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
@@ -45,7 +45,7 @@ function CreateUser() {
     <>
       <h1>Create User</h1>
 
-      <form onSubmit={handleSubmit} className="container mt-4">
+      <form onSubmit={handleSubmit} className="mt-4">
         <div className="form-group mt-3">
           <label>Name:</label>
           <input
@@ -78,8 +78,8 @@ function CreateUser() {
             onChange={handleChange}
             className="form-control"
           >
-            <option value="Y">TRUE</option>
-            <option value="N">FALSE</option>
+            <option value="Y">True</option>
+            <option value="N">False</option>
           </select>
         </div>
         <button type="submit" className="btn btn-primary mt-4">

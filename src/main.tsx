@@ -13,29 +13,27 @@ import ErrorPage from "./components/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ReadUsers />,
+    element: <App />,
     children: [
       {
-        path: "/:id",
+        path: "/",
+        element: <ReadUsers />,
+      },
+      {
+        path: "/new",
+        element: <CreateUser />,
+      },
+      {
+        path: "/update/:id",
         element: <UpdateUser />,
       },
     ],
     errorElement: <ErrorPage />,
   },
-  {
-    path: "/new",
-    element: <CreateUser />,
-  },
-  {
-    path: "/update/:id",
-    element: <UpdateUser />,
-  }
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-    {/* <App /> */}
   </React.StrictMode>
 );

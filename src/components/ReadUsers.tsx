@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import axios from "axios";
+import NavBar from "./navBar";
 
 interface User {
   id: number;
@@ -66,7 +67,7 @@ function ReadUsers() {
 
   return (
     <>
-      <div className="container">
+      <div>
         <table className="table table-bordered">
           <thead>
             <tr>
@@ -113,7 +114,6 @@ function ReadUsers() {
             ))}
           </tbody>
         </table>
-        <Outlet />
         <button className="btn btn-primary">
           <Link className="btn btn-primary" to="/new">
             Create New User
