@@ -1,0 +1,34 @@
+/* General table styling */
+.table {
+    width: 50%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  /* Status styles */
+  .status {
+    padding: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  /* Color styles based on status */
+  .status.confirmed {
+    background-color: #ddfbe3; 
+    color: #28a745;
+  }
+  
+  .status.pending {
+    background-color: #f9f2de; 
+    color: #ffc107;
+  }
+  
+  .status.canceled {
+    background-color: #f7dfe2;
+    color: #f6071f;
+  }
+  
+  .rotated-text {
+    transform: rotate(180deg);
+  }

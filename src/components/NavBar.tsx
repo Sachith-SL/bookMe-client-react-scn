@@ -4,8 +4,9 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="">Home</Link>
-          
+        <Link className="navbar-brand" to="">
+          BookMe
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -20,8 +21,19 @@ function NavBar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-              <Link className="nav-link" to="/new">Create New User</Link>
-
+            <Link className="nav-link" to="/new">
+              Create New User
+            </Link>
+          </ul>
+          <ul className="navbar-nav">
+            <Link className="nav-link" to="/login">
+              Login
+            </Link>
+          </ul>
+          <ul className="navbar-nav">
+            <Link className="nav-link" to="/my-reservations">
+              MyBooking
+            </Link>
           </ul>
         </div>
       </div>

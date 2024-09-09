@@ -1,7 +1,7 @@
 // Make sure the path is correct and the file exists.
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "../ErrorPage";
 import axios from "axios";
 
 interface User {
@@ -9,6 +9,7 @@ interface User {
   name: string;
   mobile: string;
   isLoyalty: string;
+  role: string;
 }
 
 function ReadUsers() {
@@ -74,6 +75,7 @@ function ReadUsers() {
               <th scope="col">Name</th>
               <th scope="col">Mobile</th>
               <th scope="col">Loyalty Status</th>
+              <th scope="col">Role</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
             </tr>
@@ -95,6 +97,7 @@ function ReadUsers() {
                     </span>
                   )}
                 </td>
+                <td>{user.role ==="ADMIN"?(<span className="text-danger">{user.role}</span>):(<span className="text-info">{user.role}</span>)}</td>
                 <td>
                   <Link to={`update/${user.id}`} className="btn btn-warning">
                     Edit

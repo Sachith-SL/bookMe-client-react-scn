@@ -13,6 +13,7 @@ function CreateUser() {
     name: "",
     mobile: "",
     isLoyalty: "N", // 'Y' or 'N'
+    role: "CUSTOMER", // 'CUSTOMER' or 'ADMIN'
   });
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
