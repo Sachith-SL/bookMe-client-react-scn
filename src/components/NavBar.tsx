@@ -11,16 +11,10 @@ import logoImage from "../assets/logo_v06.png";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-sm border-bottom border-dark">
       <div className="container-fluid">
-        {/* Left-aligned links */}
         <div className="navbar-nav me-auto">
           <Link className="navbar-brand" to="">
-            {/* <FontAwesomeIcon
-              icon={faHomeAlt}
-              style={{ color: "white" }}
-              size="2x"
-            /> */}
             <img style={{ width: '120px', height: '50px' }} className="card border-dark" src={logoImage}/>
           </Link>
           <Link className="nav-link mt-1 rounded-circle border-info" to="/my-reservations">

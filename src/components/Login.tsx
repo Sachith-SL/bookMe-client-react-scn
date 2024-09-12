@@ -12,7 +12,7 @@ function Login() {
     };
 
   return (
-    <div className="d-flex justify-content-center align-items-center">
+    <div className="d-flex justify-content-center align-items-center mt-4">
     <div className="card p-5 shadow-lg opacity-75 bg-secondary text-white p-4">
       <h1 className="text-center">Login</h1>
       <form onSubmit={handleSubmit}>
