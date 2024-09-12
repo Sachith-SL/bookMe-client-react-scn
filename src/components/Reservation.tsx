@@ -13,7 +13,7 @@ interface Slot {
 }
 function Reservation() {
   const [data, setData] = useState<Slot[]>([]);
-  const [givenDateStr, setGivenDateStr] = useState("2024-09-09");
+  const [givenDateStr, setGivenDateStr] = useState("2024-09-10");
   const [givenDate, setGivenDate] = useState(new Date(givenDateStr));
   const [monthName, setMonthName] = useState(
     givenDate.toLocaleString("default", { month: "long" })
@@ -62,12 +62,11 @@ function Reservation() {
       });
   }, [givenDateStr, givenDate]);
   return (
-    <div>
+    <div className="opacity-75">
       <br className="br"></br>
       <div className="row">
         <div className="col-3">
           <div className="card text-center" style={{ width: "18rem" }}>
-            
             <div className="card-header bg-danger fw-bold">{monthName}</div>
             <h1
               className="card-title text-danger"
@@ -94,18 +93,18 @@ function Reservation() {
             </div>
           </div>
         </div>
-        <div className="col-9">
+        <div className="col-9 py-3 px-5">
           <div className="row">
             <div className="col-4 d-grid gap-2">
               {data.map((slot: Slot) =>
                 slot.slotIndex >= 6 && slot.slotIndex < 12 ? (
-                  <button key={slot.slotIndex} className="btn btn-info">
+                  <button key={slot.slotIndex} className="btn btn-secondary">
                     {slot.available === true ? (
-                      <span className="text-success">
+                      <span className="text-white">
                         {slot.startTime} - {slot.endTime}
                       </span>
                     ) : (
-                      <span className="text-danger">
+                      <span className="text-white">
                         {slot.startTime} - {slot.endTime}
                       </span>
                     )}
@@ -116,13 +115,13 @@ function Reservation() {
             <div className="col-4 d-grid gap-2">
               {data.map((slot: Slot) =>
                 slot.slotIndex >= 12 && slot.slotIndex < 18 ? (
-                  <button key={slot.slotIndex} className="btn btn-info">
+                  <button key={slot.slotIndex} className="btn btn-secondary">
                     {slot.available === true ? (
-                      <span className="text-success">
+                      <span className="text-white">
                         {slot.startTime} - {slot.endTime}
                       </span>
                     ) : (
-                      <span className="text-danger">
+                      <span className="text-white">
                         {slot.startTime} - {slot.endTime}
                       </span>
                     )}
@@ -133,13 +132,13 @@ function Reservation() {
             <div className="col-4 d-grid gap-2">
               {data.map((slot: Slot) =>
                 slot.slotIndex >= 18 && slot.slotIndex < 24 ? (
-                  <button key={slot.slotIndex} className="btn btn-info">
+                  <button key={slot.slotIndex} className="btn btn-secondary">
                     {slot.available === true ? (
-                      <span className="text-success">
+                      <span className="text-white">
                         {slot.startTime} - {slot.endTime}
                       </span>
                     ) : (
-                      <span className="text-danger">
+                      <span className="text-white">
                         {slot.startTime} - {slot.endTime}
                       </span>
                     )}

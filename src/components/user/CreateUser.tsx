@@ -14,6 +14,7 @@ function CreateUser() {
     mobile: "",
     isLoyalty: "N", // 'Y' or 'N'
     role: "CUSTOMER", // 'CUSTOMER' or 'ADMIN'
+    password: "", //
   });
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
@@ -44,49 +45,62 @@ function CreateUser() {
 
   return (
     <>
-      <h1>Create User</h1>
-
-      <form onSubmit={handleSubmit} className="mt-4">
-        <div className="form-group mt-3">
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={user.name}
-            onChange={handleChange}
-            required
-            className="form-control"
-            placeholder="Enter Name"
-          />
-        </div>
-        <div className="form-group mt-3">
-          <label>Mobile:</label>
-          <input
-            type="tel"
-            name="mobile"
-            value={user.mobile}
-            onChange={handleChange}
-            required
-            className="form-control"
-            placeholder="Enter Mobile Number"
-          />
-        </div>
-        <div className="form-group mt-3">
-          <label>Loyalty Status:</label>
-          <select
-            name="isLoyalty"
-            value={user.isLoyalty}
-            onChange={handleChange}
-            className="form-control"
-          >
-            <option value="Y">True</option>
-            <option value="N">False</option>
-          </select>
-        </div>
-        <button type="submit" className="btn btn-primary mt-4">
-          Submit
-        </button>
-      </form>
+      <div className="d-flex justify-content-center  align-items-center">
+        <form onSubmit={handleSubmit} className=" card opacity-75 bg-secondary shadow-lg p-4">
+          <h1 className="text-center">Register</h1>
+          <div className="form-group mt-3 px-4">
+            <label>Name:</label>
+            <input
+              type="text"
+              name="name"
+              value={user.name}
+              onChange={handleChange}
+              required
+              className="form-control "
+              placeholder="Enter Name"
+            />
+          </div>
+          <div className="form-group mt-3 px-4">
+            <label>Mobile:</label>
+            <input
+              type="tel"
+              name="mobile"
+              value={user.mobile}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder="Enter Mobile Number"
+            />
+          </div>
+          <div className="form-group mt-3 px-4">
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder="Enter Password"
+            />
+          </div>
+          <div className="form-group mt-3 px-4">
+            <label>Loyalty Status:</label>
+            <select
+              name="isLoyalty"
+              value={user.isLoyalty}
+              onChange={handleChange}
+              className="form-control"
+            >
+              <option value="Y">True</option>
+              <option value="N">False</option>
+            </select>
+          </div>
+          <button type="submit" className="btn btn-primary mt-4 w-100 px-4">
+            Submit
+          </button>
+        </form>
+      </div>
     </>
   );
 }

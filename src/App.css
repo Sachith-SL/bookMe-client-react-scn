@@ -15,20 +15,28 @@
   
   /* Color styles based on status */
   .status.confirmed {
-    background-color: #ddfbe3; 
+    /* background-color: #ddfbe3;  */
     color: #28a745;
   }
   
   .status.pending {
-    background-color: #f9f2de; 
+    /* background-color: #f9f2de;  */
     color: #ffc107;
   }
   
   .status.canceled {
-    background-color: #f7dfe2;
+    /* background-color: #f7dfe2; */
     color: #f6071f;
   }
   
   .rotated-text {
     transform: rotate(180deg);
+  }
+
+  .app {
+    background-image: url('./assets/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
   }

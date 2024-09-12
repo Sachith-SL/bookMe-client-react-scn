@@ -1,40 +1,61 @@
+import {
+  faClipboardList,
+  faHome,
+  faBell,
+  faUser,
+  faUserPlus
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, NavLink } from "react-router-dom";
+import logoImage from "../assets/logo_v06.png";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="">
-          BookMe
-        </Link>
+        {/* Left-aligned links */}
+        <div className="navbar-nav me-auto">
+          <Link className="navbar-brand" to="">
+            {/* <FontAwesomeIcon
+              icon={faHomeAlt}
+              style={{ color: "white" }}
+              size="2x"
+            /> */}
+            <img style={{ width: '120px', height: '50px' }} className="card border-dark" src={logoImage}/>
+          </Link>
+          <Link className="nav-link mt-1 rounded-circle border-info" to="/my-reservations">
+            <FontAwesomeIcon
+              icon={faBell}
+              style={{ color: "green" }}
+              size="2x"
+            />
+          </Link>
+          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+          </span>
+          99+
+          <span className="visually-hidden">unread messages</span>
+        </div>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
+        {/* Right-aligned links */}
+        <div className="navbar-nav ms-auto">
+          <a className="nav-link" href="#">
             <Link className="nav-link" to="/new">
-              Create New User
+              <FontAwesomeIcon
+                icon={faUserPlus}
+                style={{ color: "blue" }}
+                size="2x"
+              />
             </Link>
-          </ul>
-          <ul className="navbar-nav">
+          </a>
+          <a className="nav-link" href="#">
             <Link className="nav-link" to="/login">
-              Login
+              <FontAwesomeIcon
+                icon={faUser}
+                style={{ color: "red" }}
+                size="2x"
+              />
             </Link>
-          </ul>
-          <ul className="navbar-nav">
-            <Link className="nav-link" to="/my-reservations">
-              MyBooking
-            </Link>
-          </ul>
+          </a>
         </div>
       </div>
     </nav>

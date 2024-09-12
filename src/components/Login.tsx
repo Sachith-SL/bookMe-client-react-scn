@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
 
@@ -11,11 +12,11 @@ function Login() {
     };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-    <div className="card p-4 shadow-sm">
+    <div className="d-flex justify-content-center align-items-center">
+    <div className="card p-5 shadow-lg opacity-75 bg-secondary text-white p-4">
       <h1 className="text-center">Login</h1>
       <form onSubmit={handleSubmit}>
-        <div className="form-group mt-3">
+        <div className="form-group ">
           <label>Mobile:</label>
           <input
             type="tel"
@@ -27,7 +28,7 @@ function Login() {
             placeholder="Enter Mobile Number"
           />
         </div>
-        <div className="form-group mt-3">
+        <div className="form-group mt-2">
           <label>Password:</label>
           <input
             type="password"
@@ -39,19 +40,21 @@ function Login() {
             placeholder="Enter Password"
           />
         </div>
-        <div className="mb-3 form-check mt-3">
+        <div className="mb-4 form-check mt-2">
           <input
             type="checkbox"
-            className="form-check-input"
+            className="form-check-input bg-success"
             id="exampleCheck1"
           />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
+          <label className="form-check-label fw-lighter fs-6" htmlFor="exampleCheck1">
+            Remember me
           </label>
+          <p className="float-end text-sm fw-lighter fs-sm"> Forgot Password?</p>
         </div>
-        <button type="submit" className="btn btn-primary w-100">
+        <button type="submit" className="btn btn-success w-100">
           Submit
         </button>
+        <p className="fw-lighter p-2">Don't have an accoount ? <span className="fw-bold"><Link className="text-info"to={"/new"}>Register</Link></span></p>
       </form>
     </div>
   </div>
