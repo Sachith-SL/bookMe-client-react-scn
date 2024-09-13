@@ -32,6 +32,11 @@ interface Reservation {
 }
 
 function ReservationList() {
+
+  const username = "user";
+  const password = "a8cb812b-4961-45c2-9276-9b25e81c8c37";
+  const token = btoa(`${username}:${password}`);
+  
   const status = "Confirmed";
   const status2 = "Pending";
   const status3 = "Canceled";
@@ -45,7 +50,11 @@ function ReservationList() {
 
   useEffect(() => {
     axiosInstance
-      .get(`/user/${id}`,) // replace with your endpoint
+      .get(`/user/${id}`,{
+        headers: {
+          Authorization: `Basic ${token}`,
+        }
+      }) // replace with your endpoint
       .then((response) => {
         setData(response.data);
       })

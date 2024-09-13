@@ -12,6 +12,11 @@ interface Slot {
   available: boolean;
 }
 function Reservation() {
+
+  const username = "user";
+  const password = "a8cb812b-4961-45c2-9276-9b25e81c8c37";
+  const token = btoa(`${username}:${password}`);
+
   const [data, setData] = useState<Slot[]>([]);
   const [givenDateStr, setGivenDateStr] = useState("2024-09-10");
   const [givenDate, setGivenDate] = useState(new Date(givenDateStr));
@@ -51,9 +56,14 @@ function Reservation() {
   const axiosInstance = axios.create({
     baseURL: "http://localhost:8080/api/slots", // replace with your API base URL
   });
+
   useEffect(() => {
     axiosInstance
-      .get(`available?date=${givenDateStr}`) // replace with your endpoint
+      .get(`available?date=${givenDateStr}`,{
+        headers: {
+          Authorization: `Basic ${token}`,
+        }
+      }) // replace with your endpoint
       .then((response) => {
         setData(response.data);
       })
@@ -61,6 +71,7 @@ function Reservation() {
         console.error("There is an error!", error);
       });
   }, [givenDateStr, givenDate]);
+
   return (
     <div className="opacity-75">
       <br className="br"></br>
