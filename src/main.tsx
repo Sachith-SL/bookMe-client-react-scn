@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import Reservation from "./components/Reservation";
 import ReservationList from "./components/ReservationList";
 import FontAwasome from "./components/FontAwasome";
+import AboutUs from "./components/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/about_us",
+        element: <AboutUs />,
       }
     ],
     

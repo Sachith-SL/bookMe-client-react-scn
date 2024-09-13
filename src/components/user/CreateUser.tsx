@@ -46,7 +46,10 @@ function CreateUser() {
   return (
     <>
       <div className="d-flex justify-content-center  align-items-center mt-4">
-        <form onSubmit={handleSubmit} className=" card opacity-75 bg-secondary shadow-lg p-4">
+        <form
+          onSubmit={handleSubmit}
+          className=" card opacity-75 bg-secondary shadow-lg p-4"
+        >
           <h1 className="text-center">Register</h1>
           <div className="form-group mt-3 px-4">
             <label>Name:</label>

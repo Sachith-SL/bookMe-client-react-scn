@@ -3,7 +3,8 @@ import {
   faHome,
   faBell,
   faUser,
-  faUserPlus
+  faUserPlus,
+  faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, NavLink } from "react-router-dom";
@@ -15,41 +16,48 @@ function NavBar() {
       <div className="container-fluid">
         <div className="navbar-nav me-auto">
           <Link className="navbar-brand" to="">
-            <img style={{ width: '120px', height: '50px' }} className="card border-dark" src={logoImage}/>
+            <img
+              style={{ width: "120px", height: "50px" }}
+              className="card border-dark"
+              src={logoImage}
+            />
           </Link>
-          <Link className="nav-link mt-1 rounded-circle border-info" to="/my-reservations">
+          <Link
+            className="nav-link mt-1 rounded-circle border-info"
+            to="/my-reservations"
+          >
             <FontAwesomeIcon
               icon={faBell}
               style={{ color: "green" }}
               size="2x"
             />
           </Link>
-          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
-          </span>
+          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>
           99+
           <span className="visually-hidden">unread messages</span>
         </div>
 
         {/* Right-aligned links */}
         <div className="navbar-nav ms-auto">
-          <a className="nav-link" href="#">
-            <Link className="nav-link" to="/new">
-              <FontAwesomeIcon
-                icon={faUserPlus}
-                style={{ color: "blue" }}
-                size="2x"
-              />
-            </Link>
-          </a>
-          <a className="nav-link" href="#">
-            <Link className="nav-link" to="/login">
-              <FontAwesomeIcon
-                icon={faUser}
-                style={{ color: "red" }}
-                size="2x"
-              />
-            </Link>
-          </a>
+          <Link className="nav-link" to="/about_us">
+            <FontAwesomeIcon
+              icon={faAddressCard}
+              style={{ color: "orange" }}
+              size="2x"
+            />
+          </Link>
+
+          <Link className="nav-link" to="/new">
+            <FontAwesomeIcon
+              icon={faUserPlus}
+              style={{ color: "blue" }}
+              size="2x"
+            />
+          </Link>
+
+          <Link className="nav-link" to="/login">
+            <FontAwesomeIcon icon={faUser} style={{ color: "red" }} size="2x" />
+          </Link>
         </div>
       </div>
     </nav>

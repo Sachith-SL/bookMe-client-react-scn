@@ -24,9 +24,14 @@
     color: #ffc107;
   }
   
-  .status.canceled {
+  .status.completed {
     /* background-color: #f7dfe2; */
     color: #f6071f;
+  }
+
+  .status.in_progress {
+    /* background-color: #f7dfe2; */
+    color: #3307f6;
   }
   
   .rotated-text {

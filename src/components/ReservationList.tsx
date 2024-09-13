@@ -1,39 +1,93 @@
 import { faCircleCheck, faClock } from "@fortawesome/free-regular-svg-icons";
 import { faBan, faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
+
+interface Slot {
+  id: number;
+  date: string;
+  slotIndex: number;
+  startTime: string;
+  endTime: string;
+  unitPrice: number;
+  available: boolean;
+}
+
+interface Transaction {
+  id: number | null; // Assuming null values are valid
+  date: string | null;
+  paymentMethod: string | null;
+  amount: number | null;
+  status: string | null;
+}
+
+interface Reservation {
+  transaction: Transaction;
+  userId: number;
+  slots: Slot[];
+  date: string;
+  amount: number;
+  status: string;
+}
 
 function ReservationList() {
   const status = "Confirmed";
   const status2 = "Pending";
   const status3 = "Canceled";
 
-  // fa-regular fa-calendar-check
+  const [data, setData] = React.useState([]);
+  const [id, setId] = React.useState(1);
+
+  const axiosInstance = axios.create({
+    baseURL: "http://localhost:8080/api/reservations", // replace with your API base URL
+  });
+
+  useEffect(() => {
+    axiosInstance
+      .get(`/user/${id}`,) // replace with your endpoint
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {});
+  }, []);
+
   return (
     <div className="container">
-    <table className="table table-bordered bg-secondary text-white opacity-75">
-      <tbody>
-        <tr>
-          <td>2024-09-09</td>
-          <td>05:00 pm - 07:00 pm</td>
-          <td>5000 LKR</td>
-          <td className={`status ${status.toLowerCase()}`}>{status}  <FontAwesomeIcon icon={faCircleCheck} style={{ color: "green" }} size="1x"/></td>
-        </tr>
-        <tr>
-          <td>2024-09-10</td>
-          <td>07:00 pm - 09:00 pm</td>
-          <td>6000 LKR</td>
-          <td className={`status ${status2.toLowerCase()}`}>{status2} <FontAwesomeIcon icon={faClock} style={{ color: "#ffc107" }} size="1x"/></td>
-        </tr>
-        <tr>
-          <td>2024-09-11</td>
-          <td>06:00 am - 08:00 am</td>
-          <td>4000 LKR</td>
-          <td className={`status ${status3.toLowerCase()}`}>{status3}  <FontAwesomeIcon icon={faBan} style={{ color: "#f6071f" }} size="1x"/></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <table className="table table-bordered bg-secondary text-white opacity-75">
+        <tbody>
+          {data.map((reservation: Reservation, index: number) => (
+            <tr>
+              <td className="m-4">{reservation.date}</td>
+              <td>
+                {reservation.slots.length}
+                {reservation.slots.length > 1 ? (
+                  <span> hours</span>
+                ) : (
+                  <span> hour</span>
+                )}
+              </td>
+              <td>
+                {reservation.slots.map((slot: Slot, slotIndex: number) => (
+                  <div key={slot.id}>
+                    {slot.startTime} - {slot.endTime}
+                  </div>
+                ))}
+              </td>
+              <td>{reservation.amount} LKR</td>
+              <td className={`status ${reservation.status.toLowerCase()}`}>
+                {reservation.status}{" "}
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  style={{ color: "white" }}
+                  size="1x"
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
