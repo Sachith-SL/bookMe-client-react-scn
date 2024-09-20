@@ -13,8 +13,8 @@ interface Slot {
 }
 function Reservation() {
 
-  const username = "user";
-  const password = "a8cb812b-4961-45c2-9276-9b25e81c8c37";
+  const username = import.meta.env.VITE_USER_NAME;
+  const password = import.meta.env.VITE_PASSWORD;
   const token = btoa(`${username}:${password}`);
 
   const [data, setData] = useState<Slot[]>([]);
@@ -54,7 +54,7 @@ function Reservation() {
   }, [givenDateStr]);
   // Create an Axios instance if needed, or use axios directly.
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:8080/api/slots", // replace with your API base URL
+    baseURL: `${import.meta.env.VITE_BASE_URL}/slots`, // replace with your API base URL
   });
 
   useEffect(() => {

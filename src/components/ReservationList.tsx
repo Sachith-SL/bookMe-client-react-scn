@@ -33,8 +33,8 @@ interface Reservation {
 
 function ReservationList() {
 
-  const username = "user";
-  const password = "a8cb812b-4961-45c2-9276-9b25e81c8c37";
+  const username = import.meta.env.VITE_USER_NAME;
+  const password = import.meta.env.VITE_PASSWORD;
   const token = btoa(`${username}:${password}`);
   
   const status = "Confirmed";
@@ -45,7 +45,7 @@ function ReservationList() {
   const [id, setId] = React.useState(1);
 
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:8080/api/reservations", // replace with your API base URL
+    baseURL:  `${import.meta.env.VITE_BASE_URL}/reservations`, // replace with your API base URL
   });
 
   useEffect(() => {
@@ -66,7 +66,7 @@ function ReservationList() {
       <table className="table table-bordered bg-secondary text-white opacity-75">
         <tbody>
           {data.map((reservation: Reservation, index: number) => (
-            <tr>
+            <tr key={index}>
               <td className="m-4">{reservation.date}</td>
               <td>
                 {reservation.slots.length}
