@@ -6,6 +6,7 @@ function Login() {
   const axiosInstance = axios.create({
     baseURL: "http://localhost:8080/api/users", // replace with your API base URL
   });
+
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [isAvailable, setIsAvailable] = useState(false);
@@ -13,6 +14,7 @@ function Login() {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log("Mobile:", mobile);
+
     axiosInstance
       .get(`/login/${mobile}`)
       .then((response) => {

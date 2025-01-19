@@ -160,7 +160,12 @@ function Reservation() {
           </div>
           <div className="row">
             <p />
-            <button className="btn btn-primary">Book Now</button>
+            <div className="row">
+              <div className="col-6"><button className="btn btn-primary">Next</button></div>
+              <div className="col-6"><button className="btn btn-danger">Clear</button></div>
+            </div>
+            
+            
           </div>
         </div>
       </div>

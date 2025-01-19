@@ -36,7 +36,11 @@ function NavBar() {
           99+
           <span className="visually-hidden">unread messages</span>
         </div>
-
+        <Link
+            className="nav-link mt-1 rounded-circle border-info"
+            to="/my-reservations"
+          > <p style={{color: "black"}}>My Reservations</p>
+          </Link>
         {/* Right-aligned links */}
         <div className="navbar-nav ms-auto">
           <Link className="nav-link" to="/about_us">

@@ -31,7 +31,7 @@ function CreateUser() {
     console.log("User Data:", user);
 
     axiosInstance
-      .post("", user)
+      .post("/register", user)
       .then(() => {
         console.log("User created successfully");
         alert("User created successfully"); // Add this line to show an alert when the user is created successfully
