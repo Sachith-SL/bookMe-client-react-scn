@@ -1,13 +1,10 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import axiosInstance from "../api/axios";
+
 function CreateUser() {
   const navigate = useNavigate();
-
-  const axiosInstance = axios.create({
-    baseURL: "http://localhost:8080/api/users", // replace with your API base URL
-  });
 
   const [user, setUser] = useState({
     name: "",
@@ -33,7 +30,7 @@ function CreateUser() {
       .then(() => {
         console.log("User created successfully");
         alert("User created successfully"); // Add this line to show an alert when the user is created successfully
-        navigate("/"); // Redirect to the home page after creating the user
+        navigate("/read"); // Redirect to the home page after creating the user
       })
       .catch(() => {
         console.log("Error in creating user");

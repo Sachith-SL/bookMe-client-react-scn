@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+
+import axiosInstance from "../api/axios";
 
 /**
  * Renders a form to update user information.
@@ -19,10 +20,6 @@ function UpdateUser() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const axiosInstance = axios.create({
-    baseURL: "http://localhost:8080/api/users", // replace with your API base URL
-  });
 
   useEffect(() => {
     axiosInstance

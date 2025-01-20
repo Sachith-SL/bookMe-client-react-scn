@@ -1,4 +1,4 @@
-// axios.js
+// axios.ts
 
 import axios from 'axios';
 

@@ -20,7 +20,7 @@ function NavBar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-              <Link className="nav-link" to="/new">Create New User</Link>
+              <NavLink className="nav-link" to="/new">Create New User</NavLink>
 
           </ul>
         </div>

@@ -9,6 +9,8 @@ import ReadUsers from "./components/ReadUsers";
 import CreateUser from "./components/CreateUser";
 import UpdateUser from "./components/UpdateUser";
 import ErrorPage from "./components/ErrorPage";
+import ContentArea from "./components/ContentArea";
+import Test from "./components/Test";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +19,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <ReadUsers />,
+        element: <ContentArea />,
       },
       {
         path: "/new",
         element: <CreateUser />,
+      },
+      {
+        path: "/read",
+        element: <ReadUsers />,
       },
       {
         path: "/update/:id",
@@ -30,6 +36,10 @@ const router = createBrowserRouter([
     ],
     errorElement: <ErrorPage />,
   },
+  {
+    path:"/test",
+    element: <Test />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

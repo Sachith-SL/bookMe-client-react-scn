@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
-import axios from "axios";
+
+import axiosInstance from "../api/axios";
+
 
 interface User {
   id: number;
@@ -19,11 +21,6 @@ function ReadUsers() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Create an Axios instance if needed, or use axios directly.
-  const axiosInstance = axios.create({
-    baseURL: "http://localhost:8080/api/users", // replace with your API base URL
-  });
 
   const deleteUser = (id: number) => {
     console.log(`delete ${id}`);
