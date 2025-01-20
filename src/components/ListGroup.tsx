@@ -1,6 +1,13 @@
 // this is for loop a list and display example
 
-function ListGroup() {
+import { useState } from "react";
+
+interface Props {
+  items: string[];
+  heading: string;
+}
+
+function ListGroup({items, heading}:Props) {
   const list = [
     {
       id: "001",
@@ -15,12 +22,21 @@ function ListGroup() {
       customerName: "Pawan",
     },
   ];
+
+  // const handleClick = (event: MouseEvent) => console.log(event);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
     <>
-      <ul className="list-group container">
-        {list.map((item, index) => (
-          <li key={index} className="list-group-item">
-            {item.id} - {item.customerName}
+      <h1>{heading}</h1>
+      <ul className="list-group">
+        {items.map((item, index) => (
+          <li
+            key={index}
+            className={selectedIndex ===index ?"list-group-item active":"list-group-item"}
+            onClick={() => {setSelectedIndex(index);}}
+          >
+            {item}
           </li>
         ))}
       </ul>

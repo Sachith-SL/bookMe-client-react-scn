@@ -12,6 +12,7 @@ import PassingFuntionsViaProps from "./components/PassingFuntionsViaProps";
 import PassingChildren from "./components/PassingChildren";
 import Button from "./components/Button";
 import Alert from "./components/Alert";
+import Message from "./components/Message";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -46,6 +47,8 @@ function App() {
     console.log("Clicked");
   };
 
+  let items = ["New York","San Francisco", "Tokyo"]
+
   return (
     <>
       {/* <ReservationList /> */}
@@ -69,6 +72,8 @@ function App() {
       <Button onClick={handleOnClick} color="info">
         My Button
       </Button>
+      <ListGroup items={items} heading="Cities" />
+
     </>
   );
 }
