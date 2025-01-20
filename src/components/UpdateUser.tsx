@@ -57,7 +57,7 @@ function UpdateUser() {
       .then(() => {
         console.log("User created successfully");
         alert("User created successfully"); // Add this line to show an alert when the user is created successfully
-        navigate("/"); // Redirect to the home page after creating the user
+        navigate("/read"); // Redirect to the home page after creating the user
       })
       .catch(() => {
         console.log("Error in creating user");
