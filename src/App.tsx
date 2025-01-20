@@ -72,7 +72,7 @@ function App() {
       <Button onClick={handleOnClick} color="info">
         My Button
       </Button>
-      <ListGroup items={items} heading="Cities" />
+      <ListGroup items={items} heading="Cities" onSelectItem={handleSelectItem} />
 
     </>
   );
