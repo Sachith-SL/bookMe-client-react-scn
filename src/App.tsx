@@ -18,6 +18,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   const [isVisible, setVisible] = useState(false);
+  const [isVisible2, setVisible2] = useState(true);
 
   const userList = [
     {
@@ -41,7 +42,9 @@ function App() {
   const handleOnClick1 = () => {
     setVisible(false);
   };
-
+  const handleOnClick2 = () => {
+    setVisible2(false);
+  };
   const handleOnClick = () => {
     setVisible(true);
     console.log("Clicked");
@@ -72,7 +75,16 @@ function App() {
       <Button onClick={handleOnClick} color="info">
         My Button
       </Button>
-      <ListGroup items={items} heading="Cities" onSelectItem={handleSelectItem} />
+
+      {isVisible2 && (
+      <Alert 
+        color="primary"
+        onClick={handleOnClick2}
+        >
+       <h1>Aha Patiyo... Kohomada?</h1>
+      </Alert>
+)}
+      {/* <ListGroup items={items} heading="Cities" onSelectItem={handleSelectItem} /> */}
 
     </>
   );
