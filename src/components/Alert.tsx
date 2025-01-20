@@ -1,9 +1,9 @@
 import React, { Children, ReactNode, useState } from "react";
 
 interface Props {
-  children: ReactNode;
+  children?: ReactNode;
   color?: "info" | "primary" | "success" | "danger";
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 function Alert({ onClick, children, color }: Props) {
