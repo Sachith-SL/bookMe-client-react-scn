@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import axiosInstance from "../api/axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAuthtoken } from "../../api/UserService";
 
 function Register() {
   const navigate = useNavigate();
@@ -13,22 +13,20 @@ function Register() {
     role: "",
   });
 
+  const handleRegister = async (user: any, token: any) => {
+    try {
+      alert("User created successfully"); // Add this line to show an alert when the user is created successfully
+      navigate("/"); // Redirect to the home page after creating the user
+    } catch (error) {
+      console.log("Error in creating user");
+      alert("Error in creating user");
+    }
+  };
+
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
+    handleRegister(user, getAuthtoken);
     console.log("User Data:", user);
-
-    axiosInstance
-      .post("/auth/register", user)
-      .then(() => {
-        console.log("User created successfully");
-        alert("User created successfully"); // Add this line to show an alert when the user is created successfully
-        navigate("/"); // Redirect to the home page after creating the user
-      })
-      .catch(() => {
-        console.log("Error in creating user");
-        alert("Error in creating user"); // Add this line to show an alert when there is an error in creating the user
-      });
   };
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
@@ -42,8 +40,11 @@ function Register() {
   return (
     <>
       <div className="d-flex justify-content-center">
-        <form onSubmit={handleSubmit} className="border rounded border-1 p-4 mt-1">
-        <h3 className="text-center text-primary">Register </h3>
+        <form
+          onSubmit={handleSubmit}
+          className="border rounded border-1 p-4 mt-1"
+        >
+          <h3 className="text-center text-primary">Register </h3>
           <div className="form-group">
             <label className="form-label">Name:</label>
             <input

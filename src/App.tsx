@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/common/NavBar";
 import { Outlet } from "react-router-dom";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div className="container">
+      <div className="container vh-100">
         <NavBar />
         <Outlet />
       </div>

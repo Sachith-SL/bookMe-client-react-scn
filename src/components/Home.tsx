@@ -1,30 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import axiosInstance, { getAuthtoken } from '../api/axios';
-import { useSearchParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { getAllUsers, getAuthtoken } from "../api/UserService";
+import { useSearchParams } from "react-router-dom";
 
 function Home() {
+  const [data, setData] = useState();
 
-    const [data,setData] = useState();
-    useEffect(() => {
-        axiosInstance
-          .get("",{
-            headers:{
-               "Authorization": `Bearer ${getAuthtoken()}`
-            }
-            
-          }) // replace with your endpoint
-          .then((response) => {
-            setData(response.data);
-           
-          })
-          .catch((error) => {
-            console.log(error.message);
-            
-          });
-      }, []);
+  const handleGetUser = async () => {
+    try {
+      const data = await getAllUsers(getAuthtoken());
+      setData(data.message);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    handleGetUser();
+  }, []);
+
   return (
-    <div>{data==null?'data not found':data}</div>
-  )
+    <div>
+      <p>Home</p>
+      <p>{data}</p>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

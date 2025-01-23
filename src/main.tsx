@@ -5,10 +5,11 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./components/ErrorPage";
-import Login from "./components/Login";
+import ErrorPage from "./components/common/ErrorPage";
+import Login from "./components/auth/Login";
 import Home from "./components/Home";
-import Register from "./components/Register";
+import Register from "./components/auth/Register";
+import ReadUser from "./components/user/ReadUser";
 
 const router = createBrowserRouter([
   {
@@ -26,10 +27,20 @@ const router = createBrowserRouter([
       {
         path: "/Register",
         element: <Register />,
-      }
+      },
+      {
+        path: "/users",
+        element: <ReadUser />,
+        children: [
+          {
+            path: "users/:id",
+            element: <ReadUser />,
+          },
+        ],
+      },
     ],
     errorElement: <ErrorPage />,
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
