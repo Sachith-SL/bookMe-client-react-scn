@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import axiosInstance, { getAuthtoken, setAuthtoken } from '../api/axios';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axiosInstance, { getAuthtoken, setAuthtoken } from "../api/axios";
 
 function Login() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
-    userName: "",
+    email: "",
     password: "",
   });
 
@@ -16,11 +16,11 @@ function Login() {
     console.log("User Data:", user);
 
     axiosInstance
-      .post("/login", user)
+      .post("/auth/login", user)
       .then((responce) => {
         console.log("logged in successfully");
         setAuthtoken(responce.data);
-        console.log(getAuthtoken())
+        console.log(getAuthtoken());
         alert("logged in successfully"); // Add this line to show an alert when the user is created successfully
         navigate("/"); // Redirect to the home page after creating the user
       })
@@ -39,36 +39,41 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-4">
-      <div className="form-group mt-3">
-        <label>Name:</label>
-        <input
-          type="text"
-          name="userName"
-          value={user.userName}
-          onChange={handleChange}
-          required
-          className="form-control"
-          placeholder="Enter user name"
-        />
+    <>
+      <div className="d-flex justify-content-center ">
+      <form onSubmit={handleSubmit} className="mt-4 border rounded border-1 p-4">
+      <h3 className="text-center text-primary">Login</h3>
+        <div className="form-group mt-3">
+          <label className="form-label">E Mail:</label>
+          <input
+            type="email"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+            required
+            className="form-control"
+            placeholder="Enter user name"
+          />
+        </div>
+        <div className="form-group mt-3">
+          <label className="form-label">Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+            required
+            className="form-control"
+            placeholder="Enter valid password"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary mt-3  w-100">
+          Login
+        </button>
+      </form>
       </div>
-      <div className="form-group mt-3">
-        <label>Mobile:</label>
-        <input
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleChange}
-          required
-          className="form-control"
-          placeholder="Enter Mobile Number"
-        />
-      </div>
-      <button type="submit" className="btn btn-primary mt-4">
-        Login
-      </button>
-    </form>
+    </>
   );
 }
 
-export default Login
+export default Login;
